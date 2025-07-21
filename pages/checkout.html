@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="../styles/index.css"/>
+  <link rel="stylesheet" href="../styles/all.min.css">
+  <link rel="stylesheet" href="../styles/cart.css"/>
+  <link rel="stylesheet" href="../styles/checkout.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="navbar-container"></div>
+<div class="navbar-spacer"></div>
+
+  <!-- Checkout Header -->
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <h1 class="text-center mb-5 cart-title mt-4">Checkout</h1>
+      <div class="progress-steps mb-5">
+        <div class="step-container d-flex justify-content-between align-items-start">
+          <div class="step completed">
+            <div class="step-circle"><span class="step-number">✓</span></div>
+            <div class="step-label">Shopping cart</div>
+            <div class="step-underline completed"></div>
+          </div>
+          <div class="step active">
+            <div class="step-circle"><span class="step-number">2</span></div>
+            <div class="step-label">Checkout details</div>
+            <div class="step-underline active"></div>
+          </div>
+          <div class="step inactive">
+            <div class="step-circle"><span class="step-number">3</span></div>
+            <div class="step-label">Order complete</div>
+            <div class="step-underline inactive"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container"></div>
+  <!-- Checkout Content -->
+  <div class="row g-5">
+    <!-- Left Column -->
+    <div class="col-lg-8">
+      <!-- Contact Info -->
+      <div class="checkout-box">
+        <div class="card mb-4">
+          <div class="card-body p-4">
+            <h2 class="h5 mb-4">Contact Information</h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label text-uppercase small fw-semibold">First Name</label>
+                <input type="text" class="form-control rounded p-2" placeholder="First Name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-uppercase small fw-semibold">Last Name</label>
+                <input type="text" class="form-control rounded p-2" placeholder="Last Name">
+              </div>
+              <div class="col-12">
+                <label class="form-label text-uppercase small fw-semibold">Phone Number</label>
+                <input type="tel" class="form-control rounded p-2" placeholder="Phone Number">
+              </div>
+              <div class="col-12">
+                <label class="form-label text-uppercase small fw-semibold">Email Address</label>
+                <input type="email" class="form-control rounded p-2" placeholder="Email Address">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+
+      <!-- Shipping Address -->
+      <div class="checkout-box ">
+        <div class="card mb-4">
+          <div class="card-body p-4">
+            <h2 class="h5 mb-4">Shipping Address</h2>
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label text-uppercase small fw-semibold">Street Address</label>
+                <input type="text" class="form-control rounded p-2" placeholder="Street Address">
+              </div>
+              <div class="col-12">
+                <label class="form-label text-uppercase small fw-semibold">Country</label>
+                <select class="form-select">
+                  <option>Select Country</option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-uppercase small fw-semibold">Town / City</label>
+                <input type="text" class="form-control rounded p-2" placeholder="Town / City">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-uppercase small fw-semibold"></label>
+                <input type="text" class="form-control rounded p-2" placeholder="State">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-uppercase small fw-semibold"></label>
+                <input type="text" class="form-control rounded p-2" placeholder="Zip Code">
+              </div>
+              <div class="col-12">
+                <div class="form-check mt-3">
+                  <input class="form-check-input" type="checkbox" id="different-billing" />
+                  <label class="form-check-label" for="different-billing">
+                    Use a different billing address (step 2)
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="checkout-box">
+        <div class="card mb-4">
+          <div class="card-body p-4">
+            <h2 class="h5 mb-4">Payment method</h2>
+            <div class="mb-4">
+              <div class="form-check p-3 border rounded mb-3">
+                <input class="form-check-input" type="radio" name="payment" checked />
+                <label class="form-check-label flex-grow-1">Pay by Card Credit</label>
+              </div>
+              <div class="form-check p-3 border rounded">
+                <input class="form-check-input" type="radio" name="payment" />
+                <label class="form-check-label">Paypal</label>
+              </div>
+            </div>
+            <div class="card-details border-top pt-4">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label text-uppercase small fw-semibold">Card Number</label>
+                  <input type="text" class="form-control" placeholder="1234 1234 1234 1234" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-uppercase small fw-semibold">Expiration Date</label>
+                  <input type="text" class="form-control" placeholder="MM/YY" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-uppercase small fw-semibold">CVC</label>
+                  <input type="text" class="form-control" placeholder="CVC" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Place Order Button -->
+      <a href="../pages/order.html" class="placeorder-link mb-2">Place order</a>
+    </div>
+    </div>
+
+    <!-- Right Column: Order Summary -->
+    <div class="col-lg-4">
+      <div class="card position-sticky" style="top: 20px;">
+        <div class="card-body p-4">
+          <h2 class="h5 mb-4">Order summary</h2>
+          <div class="order-items mb-4" id="checkout-order-list">
+            <!-- Products will be inserted here -->
+          </div>
+
+          <div class="input-group mb-4">
+          <input type="text" class="form-control coupon-input" placeholder="Enter code">
+          <button class="btn coupon-apply-btn">Apply</button>
+          </div>
+
+          <!-- Totals -->
+          <div>
+            <div class="d-flex justify-content-between mb-2 fw-semiboldfs-8 pt-3">
+              <span>Shipping</span><span>Free</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2 fw-semibold fs-8 pt-3 border-top">
+              <span>Subtotal</span><span class="subtotal-amount">$0.00</span>
+            </div>
+            <div class="d-flex justify-content-between fw-semibold fs-4 pt-3 border-top">
+              <span>Total</span><span class="total-amount">$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="footer-container"></div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="../scripts/index.js"></script>
+<script defer src="../scripts/cart.js"></script>
+<script defer src="../scripts/checkout.js"></script>
+</body>
+</html>

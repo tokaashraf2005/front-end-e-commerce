@@ -1,0 +1,156 @@
+<!---=======================================NAVBAR COMPONENT==========================================================--->
+<header>
+    <!--------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------UPPER HEADER------------------------------------------------>
+    <!--------------------------------------------------------------------------------------------------------->
+    <div class="position-fixed top-0 start-0 w-100 bg-white z-3">
+
+        <!--------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------  DISCOUNT BAR------------------------------------------------------>
+        <!--------------------------------------------------------------------------------------------------------->
+        <div class="discount-bar d-flex align-items-center justify-content-center gap-3 py-1 bg-custom-light lh-lg">
+            <!-- Percentage icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="25" class="d-none d-sm-block">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.99 14.993 6-6m6 3.001c0 1.268-.63 2.39-1.593 3.069a3.746 3.746 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043 3.745 3.745 0 0 1-3.068 1.593c-1.268 0-2.39-.63-3.068-1.593a3.745 3.745 0 0 1-3.296-1.043 3.746 3.746 0 0 1-1.043-3.297 3.746 3.746 0 0 1-1.593-3.068c0-1.268.63-2.39 1.593-3.068a3.746 3.746 0 0 1 1.043-3.297 3.745 3.745 0 0 1 3.296-1.042 3.745 3.745 0 0 1 3.068-1.594c1.268 0 2.39.63 3.068 1.593a3.745 3.745 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.297 3.746 3.746 0 0 1 1.593 3.068ZM9.74 9.743h.008v.007H9.74v-.007Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 4.5h.008v.008h-.008v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <!--discount bar text  -->
+            <p class=" mb-0 discount-text"> 30% off storewide — <strong>Limited time!</strong></p>
+            <!-- shop now link -->
+            <a href="../pages/shop.html" class="shop-link d-none d-lg-block d-flex align-items-center  lh-base border-bottom border-primary gap-2 text-decoration-none text-primary">
+                <span>Shop Now</span>
+                <!-- arrow icon  -->
+                <svg class="arrow-icon text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+            <!--close icon   -->
+            <svg class="close-btn position-absolute end-0 me-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </div>
+
+        <!--------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------NAVBAR------------------------------------------------------>
+        <!--------------------------------------------------------------------------------------------------------->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container">
+
+                <!-- 1. Logo -->
+                <a class="navbar-brand fw-bold fs-3" href="../index.html">3legant.</a>
+
+                <!-- 2. Main Navigation Links -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../pages/shop.html">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../pages/blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- 3. Right-Side Icons & Mobile Toggle -->
+                <div class="d-flex align-items-center">
+                    <!-- Desktop Icons -->
+                    <div class="d-none d-lg-flex align-items-center gap-3 me-2">
+                        <a class="nav-link" href="#" id="search-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197M16.803 15.803a7.5 7.5 0 1 0-1.006 1.006L21 21z" /></svg>
+                        </a>
+                        <a class="nav-link" href="../index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                        </a>
+                    </div>
+
+                    <!-- Cart and Badge (Visible on ALL screen sizes ) -->
+                
+                    <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                    </a>
+                    <a class="nav-link" href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#000000" /><text class="cart-badge" x="12" y="16" text-anchor="middle" font-size="16" fill="#ffffff">0</text></svg>
+                    </a>
+
+                    <!-- Mobile Toggle Button -->
+                    <button class="navbar-toggler border-0 ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------MOBILE MENU OFFCANVAS-------------------------------------->
+    <!--------------------------------------------------------------------------------------------------------->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+        <!-- Offcanvas content remains the same -->
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold">3legant.</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control rounded-pill ps-5 py-2" placeholder="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" class="position-absolute top-50 start-0 translate-middle-y ms-3" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197M16.803 15.803a7.5 7.5 0 1 0-1.006 1.006L21 21z" /></svg>
+            </div>
+            <ul class="navbar-nav mb-4">
+                <li class="nav-item"><a class="nav-link border-bottom p-3" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link border-bottom p-3" href="../pages/shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link border-bottom p-3" href="../pages/blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link border-bottom p-3 mb-4" href="../pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+                <p class="fw-semibold text-uppercase mb-0 text-secondary">Cart</p>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                    </a>
+                    <a class="nav-link" href="#">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#000000" /><text class="cart-badge" x="12" y="16" text-anchor="middle" font-size="16" fill="#ffffff">0</text></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+                <p class="fw-semibold text-uppercase mb-0 text-secondary">Wishlist</p>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="nav-link p-0" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="25"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+                    </a>
+                    <span class="badge rounded-circle bg-dark text-white px-2 py-1">0</span>
+                </div>
+            </div>
+            <button class="bg-dark w-100 text-white p-2 my-4 rounded fw-bold">Sign In</button>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="https://www.instagram.com" target="_blank" class="text-dark"><svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37a4 4 0 1 1-7.9 1.43 4 4 0 0 1 7.9-1.43Z" /><line x1="17.5" y1="6.5" x2="17.5" y2="6.5" /></svg></a>
+                <a href="https://www.facebook.com" target="_blank" class="text-dark"><svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v9h4v-9h3l1-4h-4V6a1 1 0 0 1 1-1h3z" /></svg></a>
+                <a href="https://www.youtube.com" target="_blank" class="text-dark"><svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------CART SIDEBAR OFFCANVAS------------------------------------->
+    <!--------------------------------------------------------------------------------------------------------->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar">
+        <!-- Cart sidebar content remains the same -->
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <p class="empty-msg">No Products In Cart</p>
+            <div class="cart-summary mt-auto">
+                <div class="subtotal">
+                    <span>Subtotal</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="total">
+                    <strong>Total</strong>
+                    <strong>$0.00</strong>
+                </div>
+                <a href="../pages/checkout.html" class="checkout-link">Checkout</a>
+                <a href="../pages/cart.html" class="view-cart-link">View Cart</a>
+            </div>
+        </div>
+    </div>
+</header>

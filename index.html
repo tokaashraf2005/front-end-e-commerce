@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="assets/images/icon.png">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+     <div id="navbar-container"></div>
+     <div class="navbar-spacer"></div>
+        <!--------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------CAROUSEL---------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------->
+
+        <div class="container">
+            <!-- Bootstrap Carousel component -->
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <!----- Carousel indicators ------>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                </div>
+                <!------- Carousel slides -------->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/images/1.jpg" class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/2.jpg" class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/3.jpg" class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/images/4.jpg" class="d-block w-100 " alt="...">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="assets/images/5.jpg" class="d-block w-100 " alt="...">
+                    </div>
+                </div>
+                <!------  CAROUSEL BUTTONS--------->
+                <button class="carousel-control-prev d-none d-lg-block" type="button"
+                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                        stroke="#000" width="35">
+                        <circle cx="12" cy="12" r="12" fill="white" stroke="none" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+                <button class="carousel-control-next d-none d-lg-block" type="button"
+                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                        stroke="#000" width="35">
+                        <circle cx="12" cy="12" r="12" fill="white" stroke="none" />
+
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+
+                    </svg>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+         <div class="offcanvas offcanvas-end" tabindex="-1" id="cartSidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <p class="empty-msg">No Products In Cart</p>
+            <div class="cart-summary mt-auto">
+                <div class="subtotal">
+                    <span>Subtotal</span>
+                    <span>$0.00</span>
+                </div>
+                
+                <div class="separator"></div>
+
+                <div class="total">
+                    <strong>Total</strong>
+                    <strong>$0.00</strong>
+                </div>
+                <a href= "../pages/checkout.html" class="checkout-link">Checkout</a>
+                <a href="../pages/cart.html" class="view-cart-link">View Cart</a>
+            </div>
+        </div>
+    </div>
+    
+<!-- Home Section -->
+<section class="home-section container">
+  <div class="row mb-5">
+    <div class="col-md-8">
+      <h1 class="fw-semibold">Simply Unique/<br>Simply Better.</h1>
+    </div>
+    <div class="col-md-4">
+      <p><strong>3legant</strong> is a gift & decorations store based in HCMC, Vietnam. Est since 2019.</p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <!-- Living Room -->
+    <div class="col-lg-8">
+      <div class="grid-item position-relative w-100 h-100">
+        <div class="position-absolute top-0 start-0 m-4 z-2">
+          <h2>Living Room</h2>
+          <a href="../pages/shop.html">Shop Now <span class="arrow">→</span></a>
+        </div>
+        <img src="assets/images/couch.png" alt="Living Room" class="img-fluid w-100 h-100 object-fit-cover">
+      </div>
+    </div>
+
+          <!-- Bedroom + Kitchen -->
+    <div class="col-lg-4 d-flex flex-column gap-3">
+      <div class="grid-item position-relative overflow-hidden flex-fill">
+        <img src="assets/images/drawer.png" alt="Bedroom" class="img-fluid w-100 h-100 object-fit-cover">
+        <div class="position-absolute bottom-0 start-0 p-3">
+          <h2>Bedroom</h2>
+          <a href="../pages/shop.html">Shop Now <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="grid-item position-relative overflow-hidden flex-fill">
+        <img src="assets/images/toaster.png" alt="Kitchen" class="img-fluid w-100 h-100 object-fit-cover">
+        <div class="position-absolute bottom-0 start-0 p-3">
+          <h2>Kitchen</h2>
+          <a href="../pages/shop.html">Shop Now <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="container">
+    <!-- New Arrivals Section -->
+    <div class="recommend-section">
+      <div class="category-header">
+        <h1>New <br> Arrivals</h1>
+        <a href="../pages/shop.html" class="more-products">More Products →</a>
+      </div>
+
+      <div class="category-products">
+        <div class="category-card">
+          <div class="img-wrapper">
+            <img src="assets/images/loveseatsofa.jpg" alt="Loveseat Sofa">
+            <div class="badge new">NEW</div>
+            <div class="badge discount">-50%</div>
+            <div class="wishlist-icon">♡</div>
+            <button class="add-btn">Add to cart</button>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="product-name">Loveseat Sofa</div>
+          <div class="price">$199.00 <span class="old-price">$400.00</span></div>
+        </div>
+
+        <div class="category-card">
+          <div class="img-wrapper">
+            <img src="assets/images/tablelamp.jpg" alt="Table Lamp">
+            <div class="badge new">NEW</div>
+            <div class="badge discount">-50%</div>
+            <div class="wishlist-icon">♡</div>
+            <button class="add-btn">Add to cart</button>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="product-name">Table Lamp</div>
+          <div class="price">$24.99</div>
+        </div>
+
+        <div class="category-card">
+          <div class="img-wrapper">
+            <img src="assets/images/beigetablelamp.jpg" alt="Beige Table Lamp">
+            <div class="badge new">NEW</div>
+            <div class="badge discount">-50%</div>
+            <div class="wishlist-icon">♡</div>
+            <button class="add-btn">Add to cart</button>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="product-name">Beige Table Lamp</div>
+          <div class="price">$24.99</div>
+        </div>
+
+        <div class="category-card">
+          <div class="img-wrapper">
+            <img src="assets/images/bambobasket.jpg" alt="Bamboo Basket">
+            <div class="badge new">NEW</div>
+            <div class="badge discount">-50%</div>
+            <div class="wishlist-icon">♡</div>
+            <button class="add-btn">Add to cart</button>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="product-name">Bamboo Basket</div>
+          <div class="price">$24.99</div>
+        </div>
+
+        <div class="category-card">
+          <div class="img-wrapper">
+            <img src="/assets/images/toasted.jpg" alt="Toasted">
+            <div class="badge new">NEW</div>
+            <div class="badge discount">-50%</div>
+            <div class="wishlist-icon">♡</div>
+            <button class="add-btn">Add to cart</button>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="product-name">Toasted</div>
+          <div class="price">$224.99</div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  <!-- Features Section -->
+  <div class="features">
+    <div class="feature-box">
+      <i class="fa-solid fa-truck"></i>
+      <h3>Free Shipping</h3>
+      <p>On orders over $200</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-money-bill-wave"></i>
+      <h3>Money-back Guarantee</h3>
+      <p>30-day guarantee</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-lock"></i>
+      <h3>Secure Payments</h3>
+      <p>Secured by Stripe</p>
+    </div>
+    <div class="feature-box">
+      <i class="fa-solid fa-headset"></i>
+      <h3>24/7 Support</h3>
+      <p>Phone and Email support</p>
+    </div>
+  </div>
+
+
+  <section class="shop-section">
+        <div class="shop-img">
+            <img src="assets/images/SaleUpTo.home.jpg" alt="Furniture" />
+        </div>
+        <div class="shop-content">
+            <p class="shop-offer">Sale up to 35% off</p>
+            <h1 class="shop-title">HUNDREDS of<br>New lower prices!</h1>
+            <p class="shop-details">It’s more affordable than ever<br>to give every room in your home a stylish makeover
+            </p>
+            <a href="pages/shop.html" class="shop-btn">Shop Now &ShortRightArrow;</a>
+        </div>
+    </section>
+
+     <!-- Articles Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h1">Articles</h2>
+        <a href="pages/blog.html" class="text-decoration-underline fw-medium">More Articles →</a>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 d-flex flex-column">
+            <img src="assets/images/blog1.png" class="card-img-top" alt="Living room" />
+            <div class="card-body px-3 d-flex flex-column justify-content-between">
+              <h5 class="card-title">7 ways to decor your home</h5>
+              <a href="pages/blog.html" class="text-decoration-underline mt-3">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 d-flex flex-column">
+            <img src="assets/images/blog2.png" class="card-img-top" alt="Kitchen" />
+            <div class="card-body px-3 d-flex flex-column justify-content-between">
+              <h5 class="card-title">Kitchen organization</h5>
+              <a href="pages/blog.html" class="text-decoration-underline mt-3">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 d-flex flex-column">
+            <img src="assets/images/blog3.png" class="card-img-top" alt="Bedroom" />
+            <div class="card-body px-3 d-flex flex-column justify-content-between">
+              <h5 class="card-title">Decor your bedroom</h5>
+              <a href="pages/blog.html" class="text-decoration-underline mt-3">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+<div id="newsletter-container"></div>
+<div id="footer-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/index.js" defer></script>
+</body>
+</html>

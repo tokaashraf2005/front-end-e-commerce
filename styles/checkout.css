@@ -1,0 +1,86 @@
+/* Checkout Button */
+.placeorder-link {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background-color: #141718 !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.card {
+  border: 1px solid #141718 !important; 
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  padding: 0.01rem !important;
+  margin-left: 20px !important;
+
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card.position-sticky {
+  border: 1px solid #141718;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #fff;
+  color: #141718;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #fff;
+  color: #141718;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+.coupon-input {
+  flex: 1;
+  border: 1px solid #929b9f !important;
+  border-radius: 6px !important;
+}
+
+.coupon-apply-btn {
+  border-radius: 6px !important;
+  background-color: #141718 !important;
+  color: #fff !important;
+  border: 1px solid #141718 !important;
+  cursor: pointer;
+}
