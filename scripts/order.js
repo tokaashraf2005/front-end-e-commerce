@@ -3,13 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const imagesContainer = document.getElementById("order-images");
   const totalEl = document.querySelector(".total-amount");
   const dateEl = document.getElementById("order-date");
+  const codeEl = document.getElementById("order-code");
 
-  if (!cart.length || !imagesContainer || !totalEl || !dateEl) return;
+  if (!cart.length || !imagesContainer || !totalEl || !dateEl || !codeEl) return;
 
-  // Clear existing images
+  // 1. Generate and show random order code (don't save to localStorage)
+  codeEl.textContent = generateOrderCode();
+
+  // 2. Render product images
   imagesContainer.innerHTML = "";
-
-  // Render product images
   cart.forEach(item => {
     const img = document.createElement("img");
     img.src = item.image;
@@ -19,18 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
     imagesContainer.appendChild(img);
   });
 
-  // Calculate and update total
+  // 3. Calculate total
   const total = cart.reduce((sum, item) => {
-    return sum + parseFloat(item.price.replace("$", "")) * item.quantity;
+    const quantity = item.quantity || 1;
+    const price = parseFloat(item.price.replace("$", ""));
+    return sum + price * quantity;
   }, 0);
-
   totalEl.textContent = `$${total.toFixed(2)}`;
 
-  // Set today's date
+  // 4. Show today's date
   const today = new Date();
   const formattedDate = today.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric"
   });
+  dateEl.textContent = formattedDate;
 });
+
+// Generates a random order code like #AB12_X9TZ
+function generateOrderCode() {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const randomPart = () =>
+    Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  return `#${randomPart()}_${randomPart()}`;
+}
+

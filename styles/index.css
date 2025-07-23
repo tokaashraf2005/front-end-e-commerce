@@ -9,12 +9,17 @@
     list-style: none;
     font-family: "Inter", sans-serif;
 }
+body {
+  padding-top: 75px;
+}
+
 .custom-font-size{
   font-size: 56px;
 }
-.navbar-spacer {
-  height: 100px;
+body.discount-none #discount-bar {
+  display: none !important;
 }
+
 /*=====================================================VARIABLES============================================================*/
 
 :root {
@@ -35,6 +40,34 @@
 
 .font-family-inter{
   font-family: var(--font-main);
+}
+
+.discount-bar {
+    font-size: 14px;
+  }
+ 
+.shop-link:hover {
+    text-decoration: underline !important;
+  }
+
+.close-btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+  }
+
+  /* Search box styling */
+.search-box {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    min-width: 250px;
+    z-index: 1050;
 }
 /*=========================================================FLY MENUE==================================================================*/
 
@@ -88,6 +121,20 @@
             align-items: center !important;
   }
 }
+
+@media (max-width: 991.98px) {
+            .navbar-brand {
+                font-size: 1.25rem !important;
+            }
+            .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    
+    .offcanvas-start {
+        width: 300px !important;
+    }
+  }
+        
 /*========================================================shop categories section==================================================================*/
     .home-section {
       padding: 60px 0;
@@ -169,180 +216,130 @@
     }
 
 /*========================================================New Arrival section ==================================================================*/
-
-html {
+.new-arrivals-section {
   scroll-behavior: smooth;
 }
 
-/* Layout for two-column image and text side-by side */
-.columns-view .col-12 {
+.new-arrivals-section h1 {
+  font-size: 32px;
+}
+
+.new-arrivals-section .category-header {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
-/* Global card reset */
-.card {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
+.new-arrivals-section .category-header a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 500;
 }
 
-/* Card image styling */
-.card-img-top {
-  display: block;
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Columns-view specific layout */
-.columns-view .card {
+.new-arrivals-section .category-products {
   display: flex;
-  flex-direction: row;
-  flex: 1;
-  border: none !important;
-  background-color: transparent !important;
-}
-
-.columns-view .card-img-top {
-  width: 50%;
-  height: auto;
-}
-
-.columns-view .card-body {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 1rem;
-  width: 50%;
-  background-color: transparent;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
 }
 
-    h1 {
-      font-size: 32px;
-    }
+.new-arrivals-section .category-card {
+  flex: 0 0 240px;
+  background: #fff;
+  padding: 0;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+}
 
-    .category-header a {
-    color: #000;
-  }
-    .category-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
+.new-arrivals-section .category-card:hover {
+  transform: translateY(-5px);
+}
 
-    .category-products {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding-bottom: 20px;
-      width: 100%;
-      scrollbar-width: thin;
-      scrollbar-color: black transparent;
-    }
+.new-arrivals-section .category-card img {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
 
-    .category-card {
-      flex: 0 0 240px;
-      background: #fff;
-      padding: 0;
-      text-align: left;
-      position: relative;
-      transition: transform 0.3s ease;
-      border-radius: none;
-    }
+.new-arrivals-section .stars {
+  color: black;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
 
-    .category-card:hover {
-      transform: translateY(-5px);
-    }
+.new-arrivals-section .product-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 4px;
+}
 
-    .category-card img {
-      width: 100%;
-      margin-bottom: 12px;
-      border-radius: 6px 6px 0 0;
-      cursor: pointer;
-    }
+.new-arrivals-section .price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #111;
+}
 
-    .category-card .stars {
-      color: black;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
+.new-arrivals-section .old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 13px;
+  margin-left: 6px;
+}
 
-    .category-card .product-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: #000;
-      margin-bottom: 4px;
-    }
+.new-arrivals-section .img-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
 
-    .category-card .price {
-      font-size: 14px;
-      font-weight: bold;
-      color: #111;
-    }
+.new-arrivals-section .badge {
+  position: absolute;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-weight: bold;
+  background: #fff;
+  color: #000;
+  z-index: 2;
+}
 
-    .category-card .old-price {
-      text-decoration: line-through;
-      color: #999;
-      font-size: 13px;
-      margin-left: 6px;
-    }
+.new-arrivals-section .badge.new {
+  top: 10px;
+  left: 10px;
+  background: white;
+  color: black;
+}
 
-    .img-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
+.new-arrivals-section .badge.discount {
+  top: 40px;
+  left: 10px;
+  background: #00c853;
+  color: white;
+}
 
-    .badge {
-      position: absolute;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 3px;
-      font-weight: bold;
-      background: #fff;
-      color: #000;
-      z-index: 2;
-    }
+.new-arrivals-section .wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  background: white;
+  border-radius: 50px;
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
 
-    .badge.new {
-      top: 10px;
-      left: 10px;
-      background: white;
-      color: black;
-    }
-
-    .badge.discount {
-      top: 40px;
-      left: 10px;
-      background: #00c853;
-      color: white;
-    }
-
-    .wishlist-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 18px;
-      color: #999;
-      cursor: pointer;
-      background: white;
-      border-radius: 50px;
-      padding: 4px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    }
-
-.add-btn {
+.new-arrivals-section .add-btn {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -353,10 +350,11 @@ html {
   border-radius: 6px;
   padding: 12px;
   font-size: 14px;
-  z-index: 3;
+  z-index: 1;
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.15);
+  border: none;
+  transition: 0.3s ease-in-out;
 }
-
 /*========================================================features section==================================================================*/
 
     .features {
@@ -491,7 +489,8 @@ html {
 
 /*=====================================================Articles section============================================================*/
 
-.card {
+.articles-section .card,
+body:not(.shop-page) .articles-section .card {
   background-color: #fff;
   box-shadow: none !important;
   border: none !important;
@@ -500,7 +499,8 @@ html {
   margin: 0;
 }
 
-.card-img-top {
+.articles-section .card-img-top,
+body:not(.shop-page) .articles-section .card-img-top {
   height: 350px;
   object-fit: cover;
   width: 100%;
@@ -545,12 +545,12 @@ a.text-decoration-none {
       color: #555;
     }
 
-    button[type="submit"] {
-      background: none;
-      border: none;
-      color: #777;
-    }
- 
+.newsletter-section button[type="submit"] {
+  background: none;
+  border: none;
+  color: #777;
+}
+
 /*========================================================Shop section==================================================================*/
 
         .shop-section {

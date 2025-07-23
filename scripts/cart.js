@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = card.querySelector(".product-name").textContent.trim();
       const price = card.querySelector(".price").textContent.trim().split(" ")[0];
       const image = card.querySelector("img").src;
-      const colorMatch = name.toLowerCase().match(/(black|red|gold|beige|white|gray|blue|brown)/);
       const color = colorMatch ? colorMatch[0].charAt(0).toUpperCase() + colorMatch[0].slice(1) : "Default";
 
       const newItem = {
         name,
         price,
         image,
-        color,
         quantity: 1,
       };
 
@@ -106,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${item.image}" alt="${item.name}" class="cart-item-img">
             <div class="cart-item-details">
               <div class="cart-item-name">${item.name}</div>
-              <div class="cart-item-color">Color: ${item.color || "Default"}</div>
               <button class="remove-btn" data-index="${index}">✕ Remove</button>
             </div>
           </div>

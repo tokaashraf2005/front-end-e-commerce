@@ -33,6 +33,7 @@
             font-size: 1.25rem;
         }
 
+        
         /* Responsive for Small Screens */
         @media (max-width: 576px) {
             .shop-banner-section img {
@@ -166,8 +167,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             cursor: pointer;
         }
-
-
         /* Sort by */
         .dropdown-toggle {
             background-color: transparent;

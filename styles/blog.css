@@ -1,3 +1,15 @@
+/* General & Defaults*/
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Banner Section */
 .banner {
   background-color: transparent;
 }
@@ -16,16 +28,18 @@
   box-shadow: none !important;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
+/*Card Layout (Default)*/
 .card {
   border-radius: 0 !important;
   box-shadow: none !important;
   background-color: transparent !important;
   padding: 0 !important;
   margin: 0 !important;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-img-top {
@@ -38,6 +52,34 @@ html {
 
 .card:hover .card-img-top {
   transform: scale(1.05);
+}
+
+.card-body {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f2f4f6;
+}
+
+
+/* Grid Views Styling*/
+
+/* Grid 2x2 specific image height */
+.grid-2 .card-img-top {
+  height: 380px;
+  object-fit: cover;
+  aspect-ratio: unset;
+}
+
+
+/*Columns View */
+.columns-view .col-12 {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .columns-view .card {
@@ -57,11 +99,39 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 1rem;
   width: 50%;
-  background-color: transparent;
+  background-color: #f2f4f6;
 }
 
+
+/*Horizontal View*/
+.horizontal-view .card {
+  flex-direction: row !important;
+}
+
+.horizontal-view .card-img-top {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
+.horizontal-view .card-body {
+  width: 60%;
+  padding: 1rem;
+  background-color: #f2f4f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 0;
+}
+
+
+/*Responsive Styles*/
 @media (max-width: 768px) {
   .columns-view .col-12,
   .columns-view .card {
@@ -97,8 +167,17 @@ html {
   }
 }
 
-img {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  outline: none !important;
+@media (max-width: 576px) {
+  .newsletter .d-flex {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .newsletter button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }
+
+
+

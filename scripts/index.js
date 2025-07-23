@@ -1,165 +1,223 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loadComponent = (path, containerId, callback) => {
     fetch(path)
-      .then(res => {
-        if (!res.ok) throw new Error(`Failed to load ${path}`);
-        return res.text();
-      })
+      .then(res => res.text())
       .then(html => {
-        const container = document.getElementById(containerId);
-        if (container) {
-          container.innerHTML = html;
-          console.log(`${containerId} loaded!`);
-          if (typeof callback === "function") callback(); // Run callback after loading
-        }
+        document.getElementById(containerId).innerHTML = html;
+        if (typeof callback === "function") setTimeout(callback, 50);
       })
-      .catch(err => console.error(err));
+      .catch(console.error);
   };
 
-  // Load navbar and attach event listeners after it loads
+  // Load components
   loadComponent("../components/navbar.html", "navbar-container", () => {
-    // Search box toggle
-    const searchToggle = document.getElementById("search-toggle");
-    const searchBox = document.getElementById("search-box");
-    if (searchToggle && searchBox) {
-      searchToggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        searchBox.classList.toggle("d-none");
-      });
-    }
+    initializeBootstrapComponents();
+    initializeNavbarFunctionality();
   });
-
-  // Load newsletter and footer
   loadComponent("../components/newsletter.html", "newsletter-container");
   loadComponent("../components/footer.html", "footer-container");
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const addToCartButtons = document.querySelectorAll(".add-btn");
-  const cartSidebarBody = document.querySelector("#cartSidebar .offcanvas-body");
-  const emptyMsg = cartSidebarBody.querySelector(".empty-msg");
-  const subtotalEl = cartSidebarBody.querySelector(".subtotal span:last-child");
-  const totalEl = cartSidebarBody.querySelector(".total strong:last-child");
 
+// ------------------- INIT FUNCTION -------------------
+function initializeNavbarFunctionality() {
+  console.log("Initializing navbar...");
+  [
+    initializeDiscountBar,
+    initializeSearchBox,
+    initializeCartBadge,
+    initializeActiveLinks,
+    initializeSmoothScrolling,
+    initializeCartFunctionality
+  ].forEach(fn => fn?.());
+  console.log("Navbar initialized ✅");
+}
 
-  // Helper: Update cart sidebar UI
-  function updateCartSidebarUI(cart) {
-    // Clear existing items (except the cart-summary)
-    const oldItems = cartSidebarBody.querySelectorAll(".cart-item");
-    oldItems.forEach(item => item.remove());
+// ------------------- BOOTSTRAP -------------------
+function initializeBootstrapComponents() {
+  const initializers = [
+    { selector: '.offcanvas', method: bootstrap.Offcanvas },
+    { selector: '[data-bs-toggle="tooltip"]', method: bootstrap.Tooltip },
+    { selector: '.dropdown-toggle', method: bootstrap.Dropdown }
+  ];
 
-    // Remove "No Products In Cart" message if items exist
-    if (cart.length > 0) {
-      emptyMsg.style.display = "none";
-    }
-
-    let subtotal = 0;
-
-    cart.forEach(product => {
-      // Add product price to subtotal
-      subtotal += parseFloat(product.price.replace("$", ""));
-
-      const item = document.createElement("div");
-      item.classList.add("cart-item", "d-flex", "align-items-center", "mb-3");
-      item.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover;" class="me-2">
-        <div>
-          <div class="fw-bold">${product.name}</div>
-          <div class="text-muted">${product.price}</div>
-        </div>
-      `;
-      cartSidebarBody.insertBefore(item, cartSidebarBody.querySelector(".cart-summary"));
-    });
-
-    // Update subtotal and total
-    subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-    totalEl.textContent = `$${subtotal.toFixed(2)}`;
-  }
-
-  // Initial sidebar update (on load)
-  const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
-    updateCartSidebarUI(initialCart);
-    updateCartBadge(initialCart.length);
-  
-
-  addToCartButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const card = button.closest(".category-card");
-
-      const product = {
-        name: card.querySelector(".product-name").textContent,
-        price: card.querySelector(".price").childNodes[0].textContent.trim(),
-        oldPrice: card.querySelector(".old-price")?.textContent || null,
-        image: card.querySelector("img").src,
-      };
-
-      // Get cart from localStorage
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      
-      // Prevent duplicates
-      const exists = cart.find(item => item.name === product.name);
-      if (!exists) {
-        cart.push(product);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartSidebarUI(cart); // Update the sidebar!
-        alert(`${product.name} added to cart!`);
-      } else {
-        alert(`${product.name} is already in the cart.`);
+  initializers.forEach(({ selector, method }) =>
+    document.querySelectorAll(selector).forEach(el => {
+      try {
+        method.getOrCreateInstance(el);
+      } catch (err) {
+        console.error(`${method.name} init error:`, err);
       }
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname.split("/").pop();
+    })
+  );
 
-  const highlightActiveLink = (selector) => {
-    const navLinks = document.querySelectorAll(selector);
+  console.log("Bootstrap components initialized");
+}
 
-    navLinks.forEach(link => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-
-      const linkPage = href.split("/").pop();
-
-      if (linkPage === currentPage) {
-        link.classList.add("active", "fw-bolder", "text-dark");
-        link.classList.remove("text-secondary", "fw-medium");
-      } else {
-        link.classList.remove("active", "fw-bolder", "text-dark");
-        link.classList.add("text-secondary", "fw-medium");
-      }
-    });
-  };
-
-  // Apply to both main and mobile nav links
-  highlightActiveLink(".navbar-nav .nav-link");
-});
-
-// Fixed cart badge update function
-function updateCartBadge(count) {
-  // Update localStorage
-  localStorage.setItem("cartCount", count);
-  
-  // Update all cart badge elements (both desktop and mobile)
-  const cartBadges = document.querySelectorAll(".cart-badge");
-  cartBadges.forEach(badge => {
-    badge.textContent = count;
+// ------------------- DISCOUNT BAR -------------------
+function initializeDiscountBar() {
+  const closeBtn = document.getElementById("close");
+  const bar = document.getElementById("discount-bar");
+  closeBtn?.addEventListener("click", e => {
+    e.preventDefault();
+    bar?.classList.add("d-none");
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const savedCount = parseInt(localStorage.getItem("cartCount")) || 0;
-  updateCartBadge(savedCount);
+// ------------------- SEARCH BOX -------------------
+function initializeSearchBox() {
+  const toggle = document.getElementById("search-toggle");
+  const box = document.getElementById("search-box");
 
-  // Example for incrementing
-  document.querySelectorAll(".add-btn").forEach(button => {
+  if (toggle && box) {
+    toggle.addEventListener("click", e => {
+      e.preventDefault();
+      box.classList.toggle("d-none");
+    });
+
+    document.addEventListener("click", e => {
+      if (!toggle.contains(e.target) && !box.contains(e.target)) {
+        box.classList.add("d-none");
+      }
+    });
+  }
+}
+
+// ------------------- CART BADGE -------------------
+const updateCartBadge = count => {
+  localStorage.setItem("cartCount", count);
+  document.querySelectorAll(".cart-badge").forEach(badge => {
+    badge.textContent = count;
+    badge.style.display = "block";
+  });
+};
+window.updateCartBadge = updateCartBadge;
+
+function initializeCartBadge() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  updateCartBadge(totalItems);
+}
+
+// ------------------- ACTIVE LINKS -------------------
+function initializeActiveLinks() {
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+    const href = link.getAttribute("href")?.split("/").pop();
+    const isActive = href === current;
+
+    link.classList.toggle("active", isActive);
+    link.classList.toggle("fw-bolder", isActive);
+    link.classList.toggle("text-dark", isActive);
+    link.classList.toggle("text-secondary", !isActive);
+    link.classList.toggle("fw-medium", !isActive);
+  });
+}
+
+// ------------------- SMOOTH SCROLLING -------------------
+function initializeSmoothScrolling() {
+  document.querySelectorAll("a[href^='#']").forEach(anchor =>
+    anchor.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute("href"));
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    })
+  );
+}
+
+// ------------------- CART FUNCTIONALITY -------------------
+function initializeCartFunctionality() {
+  const buttons = document.querySelectorAll(".add-btn");
+  const cartSidebar = document.querySelector("#cartSidebar .offcanvas-body");
+  const emptyMsg = cartSidebar?.querySelector(".empty-msg");
+  const subtotalEl = cartSidebar?.querySelector(".subtotal span:last-child");
+  const totalEl = cartSidebar?.querySelector(".total strong:last-child");
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const saveAndUpdate = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartSidebarUI();
+    updateCartBadge(cart.reduce((sum, item) => sum + item.quantity, 0));
+  };
+
+  const updateCartSidebarUI = () => {
+    cartSidebar?.querySelectorAll(".cart-item").forEach(el => el.remove());
+
+    if (cart.length > 0 && emptyMsg) emptyMsg.style.display = "none";
+
+    let subtotal = 0;
+
+    cart.forEach((product, index) => {
+      const priceNum = parseFloat(product.price.replace("$", ""));
+      subtotal += priceNum * product.quantity;
+
+      const item = document.createElement("div");
+      item.className = "cart-item d-flex align-items-center justify-content-between mb-3";
+      item.innerHTML = `
+        <div class="d-flex align-items-center">
+          <img src="${product.image}" alt="${product.name}" class="me-2" style="width: 50px; height: 50px; object-fit: cover;">
+          <div>
+            <div class="fw-bold">${product.name}</div>
+            <div class="text-muted">${product.price}</div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <button class="btn btn-sm btn-outline-dark me-1 decrease" data-index="${index}">−</button>
+          <span>${product.quantity}</span>
+          <button class="btn btn-sm btn-outline-dark ms-1 increase" data-index="${index}">+</button>
+        </div>
+      `;
+      cartSidebar?.insertBefore(item, cartSidebar.querySelector(".cart-summary"));
+    });
+
+    subtotalEl.textContent = totalEl.textContent = `$${subtotal.toFixed(2)}`;
+
+    // Attach quantity button events
+    cartSidebar.querySelectorAll(".increase").forEach(btn =>
+      btn.addEventListener("click", () => {
+        const i = parseInt(btn.dataset.index);
+        cart[i].quantity += 1;
+        saveAndUpdate();
+      })
+    );
+
+    cartSidebar.querySelectorAll(".decrease").forEach(btn =>
+      btn.addEventListener("click", () => {
+        const i = parseInt(btn.dataset.index);
+        if (cart[i].quantity > 1) {
+          cart[i].quantity -= 1;
+        } else {
+          cart.splice(i, 1);
+        }
+        saveAndUpdate();
+      })
+    );
+  };
+
+  // Init cart UI
+  updateCartSidebarUI();
+  updateCartBadge(cart.reduce((sum, item) => sum + item.quantity, 0));
+
+  // Add to cart handler
+  buttons.forEach(button => {
     button.addEventListener("click", () => {
-      const newCount = parseInt(localStorage.getItem("cartCount")) + 1;
-      updateCartBadge(newCount);
+      const card = button.closest(".category-card");
+      if (!card) return;
+
+      const name = card.querySelector(".product-name")?.textContent || "Unknown Product";
+      const price = card.querySelector(".price")?.childNodes[0]?.textContent?.trim() || "$0.00";
+      const image = card.querySelector("img")?.src || "";
+
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+        alert(`Added another ${name} to cart.`);
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+        alert(`${name} added to cart!`);
+      }
+
+      saveAndUpdate();
     });
   });
-});
-
-/*   //DISCOUNT BAR CLOSE BTN
-    document.querySelector(".close-btn").addEventListener("click", function () {
-      document.querySelector(".discount-bar").style.display = "none";
-    }); */
+}
