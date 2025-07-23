@@ -12,6 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
 </head>
 <body>
 
@@ -43,155 +44,277 @@
     </div>
   </div>
 
-
-<div class="container"></div>
+<div class="container">
   <!-- Checkout Content -->
-  <div class="row g-5">
-    <!-- Left Column -->
-    <div class="col-lg-8">
-      <!-- Contact Info -->
-      <div class="checkout-box">
-        <div class="card mb-4">
-          <div class="card-body p-4">
-            <h2 class="h5 mb-4">Contact Information</h2>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label text-uppercase small fw-semibold">First Name</label>
-                <input type="text" class="form-control rounded p-2" placeholder="First Name">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label text-uppercase small fw-semibold">Last Name</label>
-                <input type="text" class="form-control rounded p-2" placeholder="Last Name">
-              </div>
-              <div class="col-12">
-                <label class="form-label text-uppercase small fw-semibold">Phone Number</label>
-                <input type="tel" class="form-control rounded p-2" placeholder="Phone Number">
-              </div>
-              <div class="col-12">
-                <label class="form-label text-uppercase small fw-semibold">Email Address</label>
-                <input type="email" class="form-control rounded p-2" placeholder="Email Address">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-
-      <!-- Shipping Address -->
-      <div class="checkout-box ">
-        <div class="card mb-4">
-          <div class="card-body p-4">
-            <h2 class="h5 mb-4">Shipping Address</h2>
-            <div class="row g-3">
-              <div class="col-12">
-                <label class="form-label text-uppercase small fw-semibold">Street Address</label>
-                <input type="text" class="form-control rounded p-2" placeholder="Street Address">
-              </div>
-              <div class="col-12">
-                <label class="form-label text-uppercase small fw-semibold">Country</label>
-                <select class="form-select">
-                  <option>Select Country</option>
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>United Kingdom</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label text-uppercase small fw-semibold">Town / City</label>
-                <input type="text" class="form-control rounded p-2" placeholder="Town / City">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label text-uppercase small fw-semibold"></label>
-                <input type="text" class="form-control rounded p-2" placeholder="State">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label text-uppercase small fw-semibold"></label>
-                <input type="text" class="form-control rounded p-2" placeholder="Zip Code">
-              </div>
-              <div class="col-12">
-                <div class="form-check mt-3">
-                  <input class="form-check-input" type="checkbox" id="different-billing" />
-                  <label class="form-check-label" for="different-billing">
-                    Use a different billing address (step 2)
-                  </label>
+  <form id="checkout-form" novalidate>
+    <div class="row g-5">
+      <!-- Left Column -->
+      <div class="col-lg-8">
+        <!-- Contact Info -->
+        <div class="checkout-box">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-4">Contact Information</h2>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-uppercase small fw-semibold" for="firstName">First Name *</label>
+                  <input 
+                    type="text" 
+                    class="form-control rounded p-2" 
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    required
+                    minlength="2"
+                    maxlength="50"
+                    pattern="[A-Za-z\s]+"
+                    title="First name should contain only letters and spaces"
+                  >
+                  <div class="invalid-feedback">Please provide a valid first name (2-50 characters, letters only).</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-uppercase small fw-semibold" for="lastName">Last Name *</label>
+                  <input 
+                    type="text" 
+                    class="form-control rounded p-2" 
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    required
+                    minlength="2"
+                    maxlength="50"
+                    pattern="[A-Za-z\s]+"
+                    title="Last name should contain only letters and spaces"
+                  >
+                  <div class="invalid-feedback">Please provide a valid last name (2-50 characters, letters only).</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-uppercase small fw-semibold" for="phoneNumber">Phone Number *</label>
+                  <input 
+                    type="tel" 
+                    class="form-control rounded p-2" 
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    required
+                    pattern="[\+]?[0-9\s\-\(\)]{10,15}"
+                    title="Please enter a valid phone number (10-15 digits)"
+                  >
+                  <div class="invalid-feedback">Please provide a valid phone number (10-15 digits).</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-uppercase small fw-semibold" for="emailAddress">Email Address *</label>
+                  <input 
+                    type="email" 
+                    class="form-control rounded p-2" 
+                    id="emailAddress"
+                    name="emailAddress"
+                    placeholder="Email Address"
+                    required
+                    maxlength="100"
+                  >
+                  <div class="invalid-feedback">Please provide a valid email address.</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Payment Method -->
-      <div class="checkout-box">
-        <div class="card mb-4">
-          <div class="card-body p-4">
-            <h2 class="h5 mb-4">Payment method</h2>
-            <div class="mb-4">
-              <div class="form-check p-3 border rounded mb-3">
-                <input class="form-check-input" type="radio" name="payment" checked />
-                <label class="form-check-label flex-grow-1">Pay by Card Credit</label>
-              </div>
-              <div class="form-check p-3 border rounded">
-                <input class="form-check-input" type="radio" name="payment" />
-                <label class="form-check-label">Paypal</label>
-              </div>
-            </div>
-            <div class="card-details border-top pt-4">
+        <!-- Shipping Address -->
+        <div class="checkout-box">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-4">Shipping Address</h2>
               <div class="row g-3">
                 <div class="col-12">
-                  <label class="form-label text-uppercase small fw-semibold">Card Number</label>
-                  <input type="text" class="form-control" placeholder="1234 1234 1234 1234" />
+                  <label class="form-label text-uppercase small fw-semibold" for="streetAddress">Street Address *</label>
+                  <input 
+                    type="text" 
+                    class="form-control rounded p-2" 
+                    id="streetAddress"
+                    name="streetAddress"
+                    placeholder="Street Address"
+                    required
+                    minlength="5"
+                    maxlength="100"
+                  >
+                  <div class="invalid-feedback">Please provide a valid street address (5-100 characters).</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-uppercase small fw-semibold" for="country">Country *</label>
+                  <select class="form-select" id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AU">Australia</option>
+                    <option value="DE">Germany</option>
+                    <option value="FR">France</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a country.</div>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label text-uppercase small fw-semibold">Expiration Date</label>
-                  <input type="text" class="form-control" placeholder="MM/YY" />
+                  <label class="form-label text-uppercase small fw-semibold" for="city">Town / City *</label>
+                  <input 
+                    type="text" 
+                    class="form-control rounded p-2" 
+                    id="city"
+                    name="city"
+                    placeholder="Town / City"
+                    required
+                    minlength="2"
+                    maxlength="50"
+                    pattern="[A-Za-z\s\-]+"
+                    title="City should contain only letters, spaces, and hyphens"
+                  >
+                  <div class="invalid-feedback">Please provide a valid city name (2-50 characters).</div>
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label text-uppercase small fw-semibold">CVC</label>
-                  <input type="text" class="form-control" placeholder="CVC" />
+                  <label class="form-label text-uppercase small fw-semibold" for="state">State *</label>
+                  <input 
+                    type="text" 
+                    class="form-control rounded p-2" 
+                    id="state"
+                    name="state"
+                    placeholder="State"
+                    required
+                    minlength="2"
+                    maxlength="50"
+                  >
+                  <div class="invalid-feedback">Please provide a valid state.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-uppercase small fw-semibold" for="zipCode">Zip Code *</label>
+                  <input 
+                    type="text" 
+                    class="form-control rounded p-2" 
+                    id="zipCode"
+                    name="zipCode"
+                    placeholder="Zip Code"
+                    required
+                    pattern="[0-9A-Za-z\s\-]{3,10}"
+                    title="Please enter a valid zip code"
+                  >
+                  <div class="invalid-feedback">Please provide a valid zip code.</div>
+                </div>
+                <div class="col-12">
+                  <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="different-billing" />
+                    <label class="form-check-label" for="different-billing">
+                      Use a different billing address (step 2)
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Payment Method -->
+        <div class="checkout-box">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <h2 class="h5 mb-4">Payment method</h2>
+              <div class="mb-4">
+                <div class="form-check p-3 border rounded mb-3">
+                  <input class="form-check-input" type="radio" name="payment" id="creditCard" value="credit" checked required />
+                  <label class="form-check-label flex-grow-1" for="creditCard">Pay by Card Credit</label>
+                </div>
+                <div class="form-check p-3 border rounded">
+                  <input class="form-check-input" type="radio" name="payment" id="paypal" value="paypal" required />
+                  <label class="form-check-label" for="paypal">Paypal</label>
+                </div>
+                <div class="invalid-feedback">Please select a payment method.</div>
+              </div>
+              <div class="card-details border-top pt-4" id="card-details">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label text-uppercase small fw-semibold" for="cardNumber">Card Number *</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="cardNumber"
+                      name="cardNumber"
+                      placeholder="1234 1234 1234 1234" 
+                      required
+                      pattern="[0-9\s]{13,19}"
+                      maxlength="19"
+                      title="Please enter a valid card number"
+                    />
+                    <div class="invalid-feedback">Please provide a valid card number.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-uppercase small fw-semibold" for="expirationDate">Expiration Date *</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="expirationDate"
+                      name="expirationDate"
+                      placeholder="MM/YY" 
+                      required
+                      pattern="(0[1-9]|1[0-2])\/([0-9]{2})"
+                      maxlength="5"
+                      title="Please enter expiration date in MM/YY format"
+                    />
+                    <div class="invalid-feedback">Please provide a valid expiration date (MM/YY).</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-uppercase small fw-semibold" for="cvc">CVC *</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="cvc"
+                      name="cvc"
+                      placeholder="CVC" 
+                      required
+                      pattern="[0-9]{3,4}"
+                      maxlength="4"
+                      title="Please enter a valid CVC (3-4 digits)"
+                    />
+                    <div class="invalid-feedback">Please provide a valid CVC (3-4 digits).</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button type="submit" class="placeorder-link mb-2" id="place-order-btn">Place order</button>
       </div>
 
-      <!-- Place Order Button -->
-      <a href="../pages/order.html" class="placeorder-link mb-2">Place order</a>
-    </div>
-    </div>
-
-    <!-- Right Column: Order Summary -->
-    <div class="col-lg-4">
-      <div class="card position-sticky" style="top: 20px;">
-        <div class="card-body p-4">
-          <h2 class="h5 mb-4">Order summary</h2>
-          <div class="order-items mb-4" id="checkout-order-list">
-            <!-- Products will be inserted here -->
-          </div>
-
-          <div class="input-group mb-4">
-          <input type="text" class="form-control coupon-input" placeholder="Enter code">
-          <button class="btn coupon-apply-btn">Apply</button>
-          </div>
-
-          <!-- Totals -->
-          <div>
-            <div class="d-flex justify-content-between mb-2 fw-semiboldfs-8 pt-3">
-              <span>Shipping</span><span>Free</span>
+      <!-- Right Column: Order Summary -->
+      <div class="col-lg-4">
+        <div class="card position-sticky" style="top: 20px;">
+          <div class="card-body p-4">
+            <h2 class="h5 mb-4">Order summary</h2>
+            <div class="order-items mb-4" id="checkout-order-list">
+              <!-- Products will be inserted here -->
             </div>
-            <div class="d-flex justify-content-between mb-2 fw-semibold fs-8 pt-3 border-top">
-              <span>Subtotal</span><span class="subtotal-amount">$0.00</span>
+
+            <div class="input-group mb-4">
+              <input type="text" class="form-control coupon-input" placeholder="Enter code" id="couponCode">
+              <button class="btn coupon-apply-btn" type="button" id="apply-coupon">Apply</button>
             </div>
-            <div class="d-flex justify-content-between fw-semibold fs-4 pt-3 border-top">
-              <span>Total</span><span class="total-amount">$0.00</span>
+
+            <!-- Totals -->
+            <div>
+              <div class="d-flex justify-content-between mb-2 fw-semiboldfs-8 pt-3">
+                <span>Shipping</span><span>Free</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2 fw-semibold fs-8 pt-3 border-top">
+                <span>Subtotal</span><span class="subtotal-amount">$0.00</span>
+              </div>
+              <div class="d-flex justify-content-between fw-semibold fs-4 pt-3 border-top">
+                <span>Total</span><span class="total-amount">$0.00</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
+</div>
 
 <div id="footer-container"></div>
 
@@ -200,5 +323,7 @@
 <script defer src="../scripts/index.js"></script>
 <script defer src="../scripts/cart.js"></script>
 <script defer src="../scripts/checkout.js"></script>
+<script defer src="../scripts/validation.js"></script>
 </body>
 </html>
+

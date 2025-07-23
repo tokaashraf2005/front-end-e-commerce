@@ -2,10 +2,11 @@
   background-color: #fff;
   box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.05);
   border-radius: 2rem;
-  width: 900px;        
-  min-height: 400px;     
-  padding: 2rem 1.5rem;  
-  margin: 0 auto;        
+  width: 100%;
+  max-width: 900px;        /* Limits it on large screens */
+  min-height: 400px;
+  padding: 2rem 1.5rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +36,16 @@
   min-width: 200px;
   color: #fff  !important;
   background-color: 141718 !important;
+}
+/* Optional: Adjust padding and layout for small devices */
+@media (max-width: 576px) {
+  .order-summary-box {
+    padding: 1.5rem 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .btn-dark {
+    width: 100%; /* Full width button on small screens */
+    min-width: auto;
+  }
 }

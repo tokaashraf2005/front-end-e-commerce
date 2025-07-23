@@ -84,56 +84,77 @@ body.discount-none #discount-bar {
     transform: scale(1.1);
 }
 
-/*========================================================CAROUSEL==================================================================*/
+/* =====================================================CAROUSEL STYLES============================================================ */
 
 .carousel-item img {
-    height: 650px;
+  width: 100%;
+  height: 650px;
+  object-fit: cover; /* Makes image fill container without stretching */
 }
 
 .carousel-indicators [data-bs-target] {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    border: none;
-    margin: 0 6px;
-    transition: all 0.3s ease;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  margin: 0 6px;
+  transition: all 0.3s ease;
 }
 
 .carousel-indicators .active {
-    width: 30px;
-    height: 10px;
-    border-radius: 10px;
+  width: 30px;
+  height: 10px;
+  border-radius: 10px;
 }
-/*======================================================RESPONSIVNESS===================================================================*/
 
-  @media (max-width: 330.98px) {
-      .discount-text {
+/* =====================================================RESPONSIVENESS============================================================ */
+
+/* Extra small screens: fix image height */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item img {
+    height: 220px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 330.98px) {
+  .discount-text {
     font-size: 11px;
   }
+
   .cart-custom,
   .zero-badge-custom {
     display: none !important;
   }
 
-  .toggle-logo-custom{
-        justify-content: center !important;
-            align-items: center !important;
+  .toggle-logo-custom {
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 
 @media (max-width: 991.98px) {
-            .navbar-brand {
-                font-size: 1.25rem !important;
-            }
-            .navbar-toggler:focus {
-        box-shadow: none;
-    }
-    
-    .offcanvas-start {
-        width: 300px !important;
-    }
+  .navbar-brand {
+    font-size: 1.25rem !important;
   }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .offcanvas-start {
+    width: 300px !important;
+  }
+}
+
         
 /*========================================================shop categories section==================================================================*/
     .home-section {
@@ -354,6 +375,16 @@ body.discount-none #discount-bar {
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.15);
   border: none;
   transition: 0.3s ease-in-out;
+}
+.new-arrivals-section .add-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.new-arrivals-section .category-card:hover .add-btn {
+  opacity: 1;
+  pointer-events: auto;
 }
 /*========================================================features section==================================================================*/
 

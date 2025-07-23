@@ -15,16 +15,16 @@ viewIcons.forEach(icon => {
     });
 
     // Reset blogGrid classes
-    blogGrid.className = "row g-4"; // reset
     blogGrid.classList.remove("columns-view", "horizontal-view", "grid-2");
 
     switch (view) {
       case "grid-3":
-        posts.forEach(post => post.classList.add("col-md-3"));
+        posts.forEach(post => post.classList.add("col-sm-6", "col-md-4", "col-lg-3"));
         break;
 
+
       case "grid-2":
-        blogGrid.classList.add("grid-2"); 
+        blogGrid.classList.add("grid-2");
         posts.forEach(post => post.classList.add("col-md-4"));
         break;
 

@@ -7,73 +7,80 @@
   <link rel="stylesheet" href="../styles/index.css"/>
   <link rel="stylesheet" href="../styles/all.min.css">
   <link rel="stylesheet" href="../styles/cart.css"/>
-  <link rel="stylesheet" href="../styles/order.css">
-  <link rel="stylesheet" href="../styles/checkout.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../styles/order.css"> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
- 
-<div id="navbar-container"></div>
+
+  <div id="navbar-container"></div>
 
   <section class="container py-5">
     <h1 class="display-4 text-center mb-1"><strong>Complete!</strong></h1>
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
-      <div class="progress-steps mb-5">
-        <div class="step-container d-flex justify-content-between align-items-start">
-          <div class="step completed">
-            <div class="step-circle"><span class="step-number">✓</span></div>
-            <div class="step-label">Shopping cart</div>
-            <div class="step-underline completed"></div>
-          </div>
-          <div class="step completed">
-            <div class="step-circle"><span class="step-number">✓</span></div>
-            <div class="step-label">Checkout details</div>
-            <div class="step-underline completed"></div>
-          </div>
-          <div class="step active">
-            <div class="step-circle"><span class="step-number">3</span></div>
-            <div class="step-label">Order complete</div>
-            <div class="step-underline active"></div>
+    
+    <!-- Progress Steps -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="progress-steps mb-5">
+          <div class="step-container d-flex justify-content-between align-items-start">
+            <div class="step completed">
+              <div class="step-circle"><span class="step-number">✓</span></div>
+              <div class="step-label">Shopping cart</div>
+              <div class="step-underline completed"></div>
+            </div>
+            <div class="step completed">
+              <div class="step-circle"><span class="step-number">✓</span></div>
+              <div class="step-label">Checkout details</div>
+              <div class="step-underline completed"></div>
+            </div>
+            <div class="step active">
+              <div class="step-circle"><span class="step-number">3</span></div>
+              <div class="step-label">Order complete</div>
+              <div class="step-underline active"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <!-- Order Summary Box -->
-    <div class="order-summary-box">
-      <h4 class="mb-1 text-center">Thank you! 🎉</h4>
-      <p class="mb-4 fs-5 text-center">Your order has been received</p>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="order-summary-box">
+          <h4 class="mb-1 text-center">Thank you! 🎉</h4>
+          <p class="mb-4 fs-5 text-center">Your order has been received</p>
 
-      <div class="d-flex justify-content-center gap-4 mb-4" id="order-images">
-        <!-- Dynamic product images go here -->
+          <div class="d-flex justify-content-center flex-wrap gap-3 mb-4" id="order-images">
+            <!-- Dynamic product images go here -->
+          </div>
+
+          <div class="text-start mx-auto mb-3" style="max-width: 320px;">
+            <p class="mb-2 d-flex align-items-center gap-2">
+              <strong>Order code:</strong> 
+              <span class="order-value" id="order-code"></span>
+            </p>
+            <p class="mb-0"><strong>Date:</strong> <span class="order-value" id="order-date"></span></p>
+            <p class="mb-0"><strong>Total:</strong> <span class="order-value total-amount">$0.00</span></p>
+            <p class="mb-0"><strong>Payment method:</strong> <span class="order-value"> Credit Card</span></p>
+          </div>
+
+          <div class="btn-container">
+            <a href="../pages/cart.html" class="btn btn-dark rounded-pill px-4 py-2">Purchase History</a>
+          </div>
+        </div>
       </div>
-
-      
-      <div class="text-start mx-auto mb-3" style="max-width: 320px;">
-        <p class="mb-2 d-flex align-items-center gap-2"><strong>Order code:</strong> 
-        <span class="order-value" id="order-code"></span></p>
-        <p class="mb-0"><strong>Date:</strong> <span class="order-value" id="order-date"></span></p>
-        <p class="mb-0"><strong>Total:</strong> <span class="order-value total-amount">$0.00</span></p>
-        <p class="mb-0"><strong>Payment method:</strong> <span class="order-value"> Credit Card</span></p>
-      </div>
-
-    <div class="btn-container">
-      <a href="../pages/cart.html" class="btn btn-dark rounded-pill px-4 py-2">Purchase History</a>
-    </div>
     </div>
   </section>
 
-<div id="footer-container"></div>
+  <div id="footer-container"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script defer src="../scripts/index.js"></script>
-<script defer src="../scripts/order.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="../scripts/index.js"></script>
+  <script defer src="../scripts/order.js"></script>
 
 </body>
 </html>
