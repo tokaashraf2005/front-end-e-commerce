@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!cart.length || !imagesContainer || !totalEl || !dateEl || !codeEl) return;
 
-  // 1. Generate and show random order code (don't save to localStorage)
+  //  Generate and show random order code 
   codeEl.textContent = generateOrderCode();
 
-  // 2. Render product images
+  // Render product images
   imagesContainer.innerHTML = "";
   cart.forEach(item => {
     const img = document.createElement("img");
@@ -21,15 +21,28 @@ document.addEventListener("DOMContentLoaded", () => {
     imagesContainer.appendChild(img);
   });
 
-  // 3. Calculate total
-  const total = cart.reduce((sum, item) => {
+  // Calculate total
+  let total = cart.reduce((sum, item) => {
     const quantity = item.quantity || 1;
     const price = parseFloat(item.price.replace("$", ""));
     return sum + price * quantity;
   }, 0);
-  totalEl.textContent = `$${total.toFixed(2)}`;
 
-  // 4. Show today's date
+  // Apply discount if available
+  const discountPercent = parseFloat(localStorage.getItem("discountPercent"));
+  if (!isNaN(discountPercent) && discountPercent > 0) {
+    total = total * (1 - discountPercent / 100);
+  }
+
+  const savedTotal = localStorage.getItem("finalTotal");
+if (savedTotal) {
+  totalEl.textContent = `$${savedTotal}`;
+} else {
+  totalEl.textContent = `$${total.toFixed(2)}`;
+}
+
+
+  // Show today's date
   const today = new Date();
   const formattedDate = today.toLocaleDateString("en-US", {
     year: "numeric",
@@ -46,4 +59,10 @@ function generateOrderCode() {
     Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
   return `#${randomPart()}_${randomPart()}`;
 }
+// Clear cart and discount AFTER showing the order
+setTimeout(() => {
+  localStorage.removeItem("cart");
+  localStorage.removeItem("discountPercent");
+}, 1000);
+
 

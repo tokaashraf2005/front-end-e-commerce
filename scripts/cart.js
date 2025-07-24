@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --------------------------
   // Add-to-Cart Button 
-  // --------------------------
   const addToCartButtons = document.querySelectorAll(".add-btn");
 
   addToCartButtons.forEach((button) => {
@@ -36,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Update cart badge
       updateCartBadge();
 
-      // Feedback UI
+      // Feedback
       button.textContent = "✓ Added!";
       button.disabled = true;
       setTimeout(() => {
@@ -45,10 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     });
   });
-
-  // --------------------------
   // Cart Badge Update
-  // --------------------------
   function updateCartBadge() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -59,9 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --------------------------
   // Cart Rendering 
-  // --------------------------
 
   const cartContainer = document.getElementById("cart-items");
   const emptyCartMessage = document.querySelector(".empty-cart-state");
@@ -139,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function setupCartEventListeners(cart) {
-    // Remove button listeners
+    // Remove button 
     document.querySelectorAll(".remove-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const index = parseInt(btn.dataset.index);
@@ -150,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Quantity button listeners
+    // Quantity button 
     document.querySelectorAll(".quantity-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const index = parseInt(btn.dataset.index);
@@ -169,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Listen to shipping option changes
+  // shipping option changes
   document.querySelectorAll(".shipping-radio").forEach(option => {
     option.addEventListener("change", () => {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -181,26 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Coupon functionality
-  const couponInput = document.querySelector(".coupon-input");
-  const couponApplyBtn = document.querySelector(".coupon-apply-btn");
-
-  if (couponApplyBtn) {
-    couponApplyBtn.addEventListener("click", () => {
-      const couponCode = couponInput.value.trim();
-      if (couponCode) {
-        // Simple coupon validation (you can expand this)
-        if (couponCode.toLowerCase() === "save10") {
-          alert("Coupon applied! 10% discount added.");
-          // You can implement actual discount logic here
-        } else {
-          alert("Invalid coupon code.");
-        }
-        couponInput.value = "";
-      }
-    });
-  }
-
   // Checkout button functionality
   const checkoutBtn = document.querySelector(".checkout-btn");
   if (checkoutBtn) {
@@ -211,9 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
-      // Redirect to checkout page or show checkout modal
+      // Redirect to checkout page 
       alert("Proceeding to checkout...");
-      // window.location.href = "checkout.html";
     });
   }
 
