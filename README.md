@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a collaborative React.JS-based frontend for an e-commerce website. The project was originally designed in Figma.
+This project is a collaborative frontend for an e-commerce website. The project was originally designed in Figma.
 Each page reflects the effort of one team member. We focused on code quality, responsiveness, and consistency with the original Figma layout.
 Check the Figma Design: https://www.figma.com/design/2E8bDo06XE9uHLIcjiN8U0/3legant-E-Commerce-UI-Design-Template--Community-?node-id=3-674&p=f&t=GDPPDyxwIIDWdgP2-0
 
@@ -10,7 +10,6 @@ Check the Figma Design: https://www.figma.com/design/2E8bDo06XE9uHLIcjiN8U0/3leg
 
 Each team member was responsible for:
 
-- Building one page as a standalone React component
 - Making the layout fully **responsive**
 - Reproducing the exact layout and styles from the **Figma design**
 - Integrating shared components (Navbar, Footer)
@@ -18,7 +17,6 @@ Each team member was responsible for:
 
 ## Used Technologies
 
-- React.JS
 - Bootstrap5
 - JavaScript
 - HTML5
