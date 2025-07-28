@@ -4,7 +4,9 @@
 
 This project is a collaborative frontend for an e-commerce website. The project was originally designed in Figma.
 Each page reflects the effort of one team member. We focused on code quality, responsiveness, and consistency with the original Figma layout.
-Check the Figma Design: https://www.figma.com/design/2E8bDo06XE9uHLIcjiN8U0/3legant-E-Commerce-UI-Design-Template--Community-?node-id=3-674&p=f&t=GDPPDyxwIIDWdgP2-0
+
+📌 **Figma Design Reference**:
+[Elegant E-Commerce UI Design – Figma](https://www.figma.com/design/2E8bDo06XE9uHLIcjiN8U0/3legant-E-Commerce-UI-Design-Template--Community-?node-id=3-674&p=f&t=GDPPDyxwIIDWdgP2-0)
 
 ## Team Responsibilities
 
